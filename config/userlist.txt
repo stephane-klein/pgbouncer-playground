@@ -1,0 +1,3 @@
+"admin" "md545f2603610af569b6155c45067268c6b"
+"postgres" "md532e12f215ba27cb750c9e093ce4b5127"
+"user1" "md5e3b5b8262bbf639164cc1acbb5a35bb5"
