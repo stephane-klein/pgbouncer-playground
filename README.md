@@ -1,6 +1,6 @@
 # How to configure PostgreSQL database alias with PgBouncer
 
-In this playground I use [pgbouncer](https://www.pgbouncer.org/) to create a PostgreSQL [database alias](https://www.postgresql.org/message-id/flat/82ippnky8l.fsf%40mid.bfk.de)
+In this playground I use [pgbouncer](https://www.pgbouncer.org/) to create a PostgreSQL [database alias](https://www.postgresql.org/message-id/flat/82ippnky8l.fsf%40mid.bfk.de).
 
 Use case:
 
