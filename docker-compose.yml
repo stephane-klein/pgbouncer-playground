@@ -6,10 +6,16 @@ services:
             POSTGRES_USER: postgres
             POSTGRES_DB: postgres
             POSTGRES_PASSWORD: password
+        command: >
+            postgres
+              -c ssl=on
+              -c ssl_cert_file=/etc/certs/server.crt
+              -c ssl_key_file=/etc/certs/server.key
         ports:
-        - 5432:5432
+            - 5432:5432
         volumes:
-        - ./volumes/postgres/:/var/lib/postgresql/data/
+            - ./certs/:/etc/certs/
+            - ./volumes/postgres/:/var/lib/postgresql/data/
 
     pgbouncer:
         image: pgbouncer/pgbouncer:1.13.0
@@ -21,7 +27,14 @@ services:
             PGBOUNCER_LISTEN_PORT: 5532
             PGBOUNCER_AUTH_TYPE: md5
             PGBOUNCER_AUTH_FILE: /config/userlist.txt
+            PGBOUNCER_CLIENT_TLS_SSLMODE: prefer
+            PGBOUNCER_CLIENT_TLS_KEY_FILE: /etc/certs/server.key
+            PGBOUNCER_CLIENT_TLS_CERT_FILE: /etc/certs/server.crt
+            PGBOUNCER_SERVER_TLS_SSLMODE: prefer
+            PGBOUNCER_SERVER_TLS_KEY_FILE: /etc/certs/server.key
+            PGBOUNCER_SERVER_TLS_CERT_FILE: /etc/certs/server.crt
         ports:
-        - 5532:5532
+            - 5532:5532
         volumes:
-        - ./config/:/config/
+            - ./certs/:/etc/certs/
+            - ./config/:/config/
