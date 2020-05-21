@@ -31,7 +31,7 @@ $ ./scripts/show-actives-connections.sh
 ...
  postgres | pgcli            | 172.24.0.1  | t
 ...
-``
+```
 
 Connect to `pgbounnce` service with ssl on alias database named `foobar`:
 
